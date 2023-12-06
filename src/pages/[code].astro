@@ -1,0 +1,38 @@
+---
+const { code } = Astro.params;
+export function getStaticPaths() {
+  return [
+    { params: { code: 400 } },
+    { params: { code: 401 } },
+    { params: { code: 403 } },
+    { params: { code: 404 } },
+    { params: { code: 500 } },
+  ];
+}
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <title>lichodev</title>
+  </head>
+  <body class="h-screen grid grid-rows-[1fr_auto]">
+    <div class="flex flex-col justify-center items-center w-full">
+      <h1 class="font-bold text-9xl text-slate-800">{code}</h1>
+      <p class="mt-5 text-2xl px-2 text-center text-slate-800">
+        El sitio al que quieres acceder no está disponible.
+      </p>
+      <img src="/lichodev-white.png" class="h-[120px] mt-16" />
+    </div>
+    <footer
+      class="border-t-2 py-4 px-10 text-center md:text-left w-full text-slate-500"
+    >
+      <a href="https://www.lichodev.com.ar" class="hover:underline">
+        www.lichodev.com.ar
+      </a>
+    </footer>
+  </body>
+</html>
